@@ -1,0 +1,154 @@
+﻿
+
+p {
+    color: #00f; /*blue*/
+}
+/*initial letters*/
+strong {
+    color: #f00; /*red*/
+    font:200% serif;
+    background-color:#ddf; 
+}
+/*
+.corrot{
+ //   color:orange;
+}
+    */
+.spinach{
+    color:#0f0; /*green*/
+    background-color: #ddf;
+}
+#first:before {
+    content: " " url("Yellow-pin.png");
+}
+#first{
+    font-style: italic;
+    color:#00f; /*blue*/
+}
+.key:before {
+    content: " " url("Yellow-pin.png");
+}
+.key{
+    color: #00f;/*blue*/
+}
+#principal {
+    font-weight: bolder; 
+}
+#data-table-1 td:first-child {
+    text-decoration: underline;
+}
+#data-table-1 td:first-child + td {
+    text-decoration: line-through;
+}
+body{
+    font: 16px "Comic Sans MS", cursive;
+    background: url("Blue-rule.png");
+} 
+
+/* numbered paragraphs */
+h3.numbered {counter-reset: mynum;
+}
+
+ul {
+    list-style-type: lower-roman;
+    color: black;
+    border-top: 5px solid skyblue;
+    border-bottom: 5px solid skyblue;
+    border-left: 5px solid skyblue;
+    border-right: 5px solid skyblue;
+}
+p.numbered:before {
+    content: "(" counter(mynum) "): ";
+    counter-increment: mynum;
+    font-weight: bold;
+    color: black;
+    
+}
+h3 { clear: left;}
+ul, #numbered {
+    border: 1em solid #69b;
+    padding-right:1em;
+    float: left;
+}
+img {
+    position:absolute;
+    top:5px;
+    right:5px;
+    
+}
+#demo-table {
+    font: 100% sans-serif;
+    background-color: #efe;
+    border-collapse: collapse;
+    empty-cells: show;
+    border: 1px solid #7a7; 
+}
+    #demo-table > caption {
+        text-align: left;
+        font-weight: bold;
+        font-size: 200%;
+        border-bottom: .2em solid #4ca;
+        margin-bottom: .5em;
+    }
+
+
+    /* basic shared rules */
+    #demo-table th,
+    #demo-table td {
+        text-align: right;
+        padding-right: .5em;
+    }
+
+    #demo-table th {
+        font-weight: bold;
+        padding-left: .5em;
+    }
+
+
+    /* header */
+    #demo-table > thead > tr:first-child > th {
+        text-align: center;
+        color: blue;
+    }
+
+    #demo-table > thead > tr + tr > th {
+        font-style: italic;
+        color: gray;
+    }
+
+    /* fix size of superscript */
+    #demo-table sup {
+        font-size: 75%;
+    }
+
+    /* body */
+    #demo-table td {
+        background-color: #cef;
+        padding: .5em .5em .5em 3em;
+    }
+
+    #demo-table tbody th:after {
+        content: ":";
+    }
+
+
+    /* footer */
+    #demo-table tfoot {
+        font-weight: bold;
+    }
+
+        #demo-table tfoot th {
+            color: blue;
+        }
+
+            #demo-table tfoot th:after {
+                content: ":";
+            }
+
+    #demo-table > tfoot td {
+        background-color: #cee;
+    }
+
+    #demo-table > tfoot > tr:first-child td {
+        border-top: .2em solid #7a7;
+    }
