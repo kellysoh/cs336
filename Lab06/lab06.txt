@@ -1,16 +1,18 @@
 ﻿6.1
 
-a. Identify the request methods that you can and can’t test using the two tools listed above. If a method cannot be testing using a particular tool, explain why this is the case. List the Curl commands you used successfully.
--I couldn't test HEAD when I use Curl to test it. So I used -head instead and it worked successfully. 
+a.
+Curl -I couldn't test HEAD when I use Curl to test it. So I used -head instead and it worked successfully. 
 
+
+Chrome: GET was successful but all the other methods were not working. 
 
 
 
 b. What is the most appropriate HTTP response code for pages that aren’t defined by an Express route?
 
--"GET"
+-200 
 
 6.2 
 a. it supports GET and POST.
-b. The form data passed back to the server by getting the user input. 
+b. The data is in a json format and is not modified. 
 
