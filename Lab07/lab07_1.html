@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+    a.test {
+        font-weight: bold; 
+    } 
+    </style>
+    <title>Demo</title>
+</head>
+<body>
+    <a href="http://jquery.com/">jQuery</a>
+    <div class="container"></div>
+    <script src="jquery.js"></script>
+    <script>
+
+    $( document ).ready(function() {
+        $(".container").append("<p>This is for part 2 lol</p>");
+        $( "a" ).click(function( event ) {
+            alert( "The link will no longer take you to jquery.com" );
+            event.preventDefault(); 
+        });
+        $( "a" ).addClass( "test" ); 
+        $( "a" ).removeClass( "test" );
+        $( "a" ).click(function( event ) {
+            event.preventDefault();
+            $( this ).hide( "slow" );
+        })
+        $.get( "lab07_1.html", function() {
+            myCallBack( param1, param2 ); 
+        });
+    });
+
+    </script>
+
+</body>
+</html>
