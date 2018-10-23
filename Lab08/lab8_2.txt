@@ -1,16 +1,37 @@
 Exercise 8.2
+
 Kelly Oh
 
+
+
 a. 
+
    i. The component structure (a tree of components) makes the UI composable. 
+
    React is highly depend on composable components.
+
    ii. JSX enables to write JavaScript similar to XML. It is easier to
+
    read than writing plain JavaScript. 
+
    iii. React is safe because XSS protection is the default.
+
    In addition, it does not produce HTML strings. 
+
    iv. The comment first loaded by making a comment box which can stores data inside with
+
    a specified data type; then, it get the comment from the server. At last, it is saved by the function inside the comment box. 
+
    v. Props can be used to read the data passed to the box and render markup. 
+
    State is the state setting of a component. When it is updated, the component re-renders itself.
 
-b. i. 
+
+
+b. i. When I delete one list information about a comment and refreshes the page, it imediately updates the page. Because reacts enables to check the file everytime we refreshes the page. 
+      If I delete author and text leaving id, it gives me error becuase there is no children to display. 
+   
+   ii. Because it should be appeared after it makes sure there is a comment to display
+
+   iii. The user can always get the current updated version of the data and does not cause confusion due to a gap of information between the current data and the displayed data.
+   iv. There is a risk that the server can be disfunction with variuos reasons but optimism can be used to enhance the user experience.
