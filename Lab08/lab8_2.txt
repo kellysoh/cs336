@@ -1,0 +1,16 @@
+Exercise 8.2
+Kelly Oh
+
+a. 
+   i. The component structure (a tree of components) makes the UI composable. 
+   React is highly depend on composable components.
+   ii. JSX enables to write JavaScript similar to XML. It is easier to
+   read than writing plain JavaScript. 
+   iii. React is safe because XSS protection is the default.
+   In addition, it does not produce HTML strings. 
+   iv. The comment first loaded by making a comment box which can stores data inside with
+   a specified data type; then, it get the comment from the server. At last, it is saved by the function inside the comment box. 
+   v. Props can be used to read the data passed to the box and render markup. 
+   State is the state setting of a component. When it is updated, the component re-renders itself.
+
+b. i. 
