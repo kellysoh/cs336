@@ -25,7 +25,7 @@ app.get('/people', function (req, res) {
     res.status(200).json(people);
 })
 
-app.get('/people/:id', (req, res) => {
+app.get('/person/:id', (req, res) => {
     var Userid = req.params.id;
     var result = findUser(Userid);
     if (result == "404") {
@@ -36,7 +36,7 @@ app.get('/people/:id', (req, res) => {
     }
 });
 
-app.get('/people/:id/name', (req, res) => {
+app.get('/person/:id/name', (req, res) => {
     var Userid = req.params.id;
     var result = findUser(Userid);
     if (result == "404") {
@@ -47,7 +47,7 @@ app.get('/people/:id/name', (req, res) => {
     }
 });
 
-app.get('/people/:id/years', (req, res) => {
+app.get('/person/:id/years', (req, res) => {
     var Userid = req.params.id;
     var result = findUser(Userid);
     if(result == "404") {
@@ -60,7 +60,7 @@ app.get('/people/:id/years', (req, res) => {
         if (today.getMonth() - Number(startDate[1]) > 6) {
             diff_year += 1;
         }
-        res.send("" + diff_year + "Years of working experience" );
+        res.send("" + diff_year + " Years of working experience" );
     }
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
