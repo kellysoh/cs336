@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var people = require('./public/people.json');
 var p_path = path.join(__dirname, '/public/people.json');
-var peopleList = [];
+var peopleList;
 function findUser(userId) {
     var i = 0;
     while (people[i]) {
@@ -25,14 +25,6 @@ function findUser(userId) {
     return '404';
 }
 
-fs.readFile(p_path, function (err, data) {
-    if (err) {
-        console.error(err);
-        process.exit(1);
-    }
-    peopleList = JSON.parse(data);
-});
-
 //respond with "Hello"
 app.get('/', (req, res) => res.send('Hello World!'));
 
@@ -41,7 +33,13 @@ app.get('/people', function (req, res) {
 })
 
 app.post('/people', function (req, res) {
-    $.getJSON('/people.json', function (data) {
+    fs.readFile(p_path, function (err, data) {
+        if (err) {
+            console.error(err);
+            process.exit(1);
+        }
+        var peopleList = JSON.parse(data);
+    
         var person_list = {
             id: req.body.id,
             firstName: req.body.firstName,
@@ -50,9 +48,7 @@ app.post('/people', function (req, res) {
         };
         peopleList.push(person_list);
 
-        var newPerson = JSON.stringify(p_path);
-
-        fs.writeFile(p_path, newPerson, function (err) {
+        fs.writeFile(p_path, JSON.stringify(peopleList, null, 4)    , function (err) {
             console.log(err)
         });
     });
@@ -72,12 +68,16 @@ app.get('/person/:id', (req, res) => {
 app.delete('/person/:id', (req, res) => {
     var Userid = req.params.id;
     var result = findUser(Userid);
+    var i = 0;
+    while (people[i]) {
+        if (people[i].id == Userid) {
+            delete people[i];
+        }
+        i++
+    }
     if (result == "404") {
         res.status(404).send("Not found");
     } 
-    else {
-        delete result;
-    }
 })
 
 app.post('/person/:id', function (req, res) {
