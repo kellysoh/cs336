@@ -1,0 +1,11 @@
+Exercise 5.1
+a. Flexboxes make it easier to implement responsive design by setting width and heights for other
+devices. 
+b. Advantages is that it's easy to implement but using flexbox makes it longer to load a page. 
+
+Exercise 5.2 
+a. You don't need to. You can just open the file and see the changes. 
+b.Yes, it's taking a less time to use stylus but because simple mistake can change a lot so
+you need to be careful when you use it. 
+c. --watch shows the change you make when you edit the file. It makes easier to track down changes. 
+--compress compresses the file so that make the file simpler.  
