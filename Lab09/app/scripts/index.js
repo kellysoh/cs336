@@ -1,6 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Remarkable from 'remarkable';
+import $ from 'jquery';
 
-// Put your JavaScript code here (rather than in the HTML file).
-
+import '../css/base.css';
 
 //tutorial1.js
 var CommentBox = React.createClass( {
