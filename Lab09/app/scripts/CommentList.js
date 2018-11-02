@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Comment from './Comment.js';
 import CommentForm from './CommentForm.js'
 

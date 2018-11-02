@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentList from './CommentList.js';
 
 module.exports = React.createClass({
     getInitialState: function () {
