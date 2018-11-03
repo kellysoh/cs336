@@ -8,17 +8,24 @@ const port = 3000;
 var fs = require('fs');
 var path = require('path');
 
+
 app.use(express.static("./public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-var people = require('./public/people.json');
-var p_path = path.join(__dirname, '/public/people.json');
-var peopleList;
+var people = '[' + 
+    '{"id":"JB","firstName": "John","lastName": "Backus","startDate": "2012-04-21"},' +
+    '{"id": "KO","firstName": "Kelly","lastName": "Oh","startDate": "1996-04-20"},' +
+    '{"id": "JF","firstName": "James","lastName": "Fisher","startDate": "1980-09-24"},' +
+    '{"id": "CS","firstName": "Chris","lastName": "Stehouwer","startDate": "1999-02-14"},' +
+    '{"id": "LE","firstName": "Laura","lastName": "Ebels","startDate": "2007-05-23"}]'
+
+var pList = JSON.parse(people);
+
 function findUser(userId) {
     var i = 0;
-    while (people[i]) {
-        if (people[i].id == userId) {
-            return people[i];
+    while (pList[i]) {
+        if (pList[i].id == userId) {
+            return pList[i];
         }
         i++
     }
@@ -29,31 +36,21 @@ function findUser(userId) {
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.get('/people', function (req, res) {
-    res.json(people);
+    res.json(pList);
 })
 
 app.post('/people', function (req, res) {
-    fs.readFile(p_path, function (err, data) {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-        }
-        var peopleList = JSON.parse(data);
     
-        var person_list = {
-            id: req.body.id,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            startDate: req.body.startDate
-        };
-        peopleList.push(person_list);
+    var person_list = {
+        id: req.body.id,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        startDate: req.body.startDate
+    };
+    pList.push(person_list);
 
-        fs.writeFile(p_path, JSON.stringify(peopleList, null, 4)    , function (err) {
-            console.log(err)
-        });
-    });
 });
-
+/*curl -X POST localhost:3000/people -d '{"id": "NL", "firstName": "Nelson", "lastName": "Lee", "startDate": "2001-02-24"}' -H 'Content-Type: application/json'*/
 app.get('/person/:id', (req, res) => {
     var Userid = req.params.id;
     var result = findUser(Userid);
@@ -69,27 +66,33 @@ app.delete('/person/:id', (req, res) => {
     var Userid = req.params.id;
     var result = findUser(Userid);
     var i = 0;
-    while (people[i]) {
-        if (people[i].id == Userid) {
-            delete people[i];
+    for (var i = 0; i < pList.length; i++) {
+        if (pList[i].id == Userid) {
+            pList.splice(i, 1);
         }
-        i++
     }
     if (result == "404") {
         res.status(404).send("Not found");
     } 
 })
-
+/*curl - X DELETE localhost: 3000 / person / NL - H 'Content-Type: applicaion/json' */
 app.post('/person/:id', function (req, res) {
     var Userid = req.params.id; 
     var result = findUser(Userid);
+    for (var i = 0; i < pList.length; i++) {
+        if (pList[i].id == Userid) {
+            pList[i].id = req.params.id;
+            pList[i].firstName = req.body.firstName;
+            pList[i].lastName = req.body.lastName;
+            pList[i].startDate = req.body.startDate;
+            res.send("changed the Person with ID=" + req.params.id);
+        }
+    }
     if (result == 404) {
         res.status(404);
     }
-    res.send("changed the Person with ID=" + req.params.id);
-    
 })
-
+/* curl -X POST localhost:3000/person/KO -d '{"id":"KO", "firstName": "Seeun", "lastName":"Oh", "startDate":"1996-04-20"}' -H 'Content-Type: application/json'*/
 app.get('/person/:id/name', (req, res) => {
     var Userid = req.params.id;
     var result = findUser(Userid);
