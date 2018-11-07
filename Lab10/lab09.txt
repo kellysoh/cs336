@@ -1,0 +1,7 @@
+10.1 
+a. In MongoDB, the data is json file but in SQL the data is stored in table and rows. 
+You cannot join tables in MongoDB.
+b. The advantage would be it is convenient to carry data. You just need to connect to your cloud server and edit them right away. 
+But when you share the data with other users, it might cause some communicating problem due to the changes made from other users. 
+c. I think you can use use sandbox databases as product databases but you should not. It is dangerous to make sandbox databases product databases because it can be easily changeable which increases
+possibility to lose important data.
