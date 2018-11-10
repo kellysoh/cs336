@@ -1,6 +1,7 @@
 import React from 'react';
 import Remarkable from 'remarkable';
 
+import '../css/base.css';
 
 module.exports = React.createClass({
     rawMarkup: function() {
