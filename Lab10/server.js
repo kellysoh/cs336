@@ -28,7 +28,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 MongoClient.connect('mongodb://cs336:' + process.env.MONGO_PASSWORD + '@ds253713.mlab.com:53713/cs336', function (err, client) {
-
+    if (err) {
+        console.log(err);
+    }
     var db = client;
     // Additional middleware which will set headers that we need on each request.
 
