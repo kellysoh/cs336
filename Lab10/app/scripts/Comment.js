@@ -15,7 +15,7 @@ module.exports = React.createClass({
             <h2 className="commentAuthor">
             {this.props.author}
             </h2>
-            <span dangerouslysetInnerHTML={this.rawMarkup()} />
+            <span dangerouslySetInnerHTML={this.rawMarkup()} />
             </div>
         );
     }

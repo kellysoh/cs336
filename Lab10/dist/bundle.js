@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5cb2764b7579f308ff1f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1c3b2ff77457705ce68b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -33397,7 +33397,7 @@
 	                { className: 'commentAuthor' },
 	                this.props.author
 	            ),
-	            _react2.default.createElement('span', { dangerouslysetInnerHTML: this.rawMarkup() })
+	            _react2.default.createElement('span', { dangerouslySetInnerHTML: this.rawMarkup() })
 	        );
 	    }
 	});
