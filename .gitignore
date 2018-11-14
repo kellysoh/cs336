@@ -1,0 +1,10 @@
+#ignore folder named 'disdt'
+*.*~
+\#*
+.\#*
+node_modules/
+npm-debug.log
+.DS_Store
+/*.env
+dist/
+.passwordrc
