@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="function.js"></script>
+    <script src="../main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>add Person</title>
+</head>
+<body>
+      <form id="Form" action="/people" method="POST">
+          First Name: <input type="text" name="firstname" />
+          Last Name: <input type="text" name="lastname" />
+          ID : <input type="text" name="id"/> 
+          Start Date: <input type="text" name="startdate" placeholder="yyyy-mm-dd"/> 
+          <input type="submit" />
+      </form>
+    <p>List of Users</p>
+</body>
+</html>
