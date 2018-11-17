@@ -81,7 +81,7 @@ app.post('/person/:id', function (req, res) {
     var result = findUser(Userid);
     for (var i = 0; i < pList.length; i++) {
         if (pList[i].id == Userid) {
-            pList[i].id = req.params.id;
+            pList[i].id = req.body.id;
             pList[i].firstName = req.body.firstName;
             pList[i].lastName = req.body.lastName;
             pList[i].startDate = req.body.startDate;
