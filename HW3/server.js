@@ -1,14 +1,14 @@
 ﻿
 //basic route
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser')
 var fs = require('fs');
 var path = require('path');
+var express = require('express');
+var bodyParser = require('body-parser')
+var app = express();
 var MongoClient = require('mongodb').MongoClient;
 
 app.set('port', (process.env.PORT || 3000));
-app.use('/', express.static(path.join(__dirname, 'dist')));
+app.use('/', express.static(path.join(__dirname, 'dist/')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -32,14 +32,17 @@ MongoClient.connect('mongodb://cs336:' + process.env.MONGO_PASSWORD + '@ds253713
     });
 
 
-    app.get('/', function(req, res) {
+    app.get('/api/people', function(req, res) {
         var collection = db.collection('people');
         collection.find({}).toArray(function (err, array) {
+            if (err) {
+                console.log(err);
+            }
             res.json(array);
         });
     });
 
-    app.post('/', function (req, res) {
+    app.post('/api/people', function (req, res) {
         var collection = db.collection('people');
         
         var newPerson = {

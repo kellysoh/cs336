@@ -5,7 +5,7 @@ import PersonBox from './PersonBox.js'
 
 
 ReactDOM.render(
-    <PersonBox url="/" pollInterval={2000} />,
+    <PersonBox url="/api/people" pollInterval={2000} />,
     document.getElementById('content')
 );
 

@@ -6,8 +6,7 @@ module.exports = React.createClass({
     render: function () {
         var personNodes = this.props.data.map(function (person) {
             return (
-                <Person key={person._id} id={person.id} firstname={person.firstname} lastname={person.lastname}>
-                    {person.firstname}{person.lastname}{person.startdate} 
+                <Person id={person.id} firstName = {person.firstName} lastName= {person.lastName} startDate={person.startDate}>
                 </Person>
             );
         });
