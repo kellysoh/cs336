@@ -1,0 +1,7 @@
+11.1 
+	a. The development is for developing codes and is being testified so it allows to have errors. But production deployments are for users to actually use so it does not allow any error. Production deployments are designed to optimize performance so that increases the speed.
+	b. OccurenceOrderPlugin which loads plugin with the most occurency first,UglifyJsPlugin which wraps JS file and minimizes the size of the file
+
+11.2 
+	a. It reduces skill requirements and it improves productivity. 
+	b. It builds application based on the language the user selected. Heroku run the application by using a command that the user provided in the Procfile. It will run on a dyno that has been preloaded.
