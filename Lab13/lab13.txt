@@ -1,0 +1,10 @@
+13.1 
+	a. The nested views can be eaily handled. Using the browing history feature, the user can see privious and updated version of the view. 
+	b. BrowserHistory is preferred than hash History because browsers do not send the hash part of URL so server-side would not know hash was in the URL.
+	c. Because we need a new server configuration to support the browser history. The hash-based server does not need this configuration and it modifies the URLw with hash tag in it.
+
+
+13.2 
+	a. commentEdit has author and text and commentBox has data. In addition, commentBox has _isMounted information which commentEdit does not have. 
+	b. When it updates or deletes comments successfully, it pushes the data. When cancel button is clicked, it navigates to the previous home page. 
+	c. The Link is navigates to the commentEdit component with the same id, not navigates to the totally differnt url.
